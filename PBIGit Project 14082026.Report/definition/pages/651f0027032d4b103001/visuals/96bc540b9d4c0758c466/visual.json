@@ -9,7 +9,7 @@
     "width": 639.453257173487
   },
   "visual": {
-    "visualType": "columnChart",
+    "visualType": "funnel",
     "query": {
       "queryState": {
         "Category": {
@@ -99,7 +99,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "fd59b33d75704ef85545",
+        "name": "9dad85fc79b49febd010",
         "field": {
           "Column": {
             "Expression": {
@@ -113,7 +113,7 @@
         "type": "Categorical"
       },
       {
-        "name": "b1c00a4d9f899390cd43",
+        "name": "ff00839018d8fe75c81a",
         "field": {
           "Aggregation": {
             "Expression": {
