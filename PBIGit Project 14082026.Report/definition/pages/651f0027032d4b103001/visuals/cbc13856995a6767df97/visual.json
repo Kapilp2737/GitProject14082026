@@ -1,18 +1,18 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "193e03b0ae00e0230c03",
+  "name": "cbc13856995a6767df97",
   "position": {
-    "x": 678.21657452485078,
+    "x": 905.79090684049845,
     "y": 50.697252248535364,
-    "z": 1,
-    "height": 216.30827626041753,
-    "width": 192.64955854443437
+    "z": 3,
+    "height": 669.20372968066681,
+    "width": 352.62755452870152
   },
   "visual": {
-    "visualType": "tableEx",
+    "visualType": "barChart",
     "query": {
       "queryState": {
-        "Values": {
+        "Category": {
           "projections": [
             {
               "field": {
@@ -26,8 +26,13 @@
                 }
               },
               "queryRef": "MOCK_DATA.Locations",
-              "nativeQueryRef": "Locations"
-            },
+              "nativeQueryRef": "Locations",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
             {
               "field": {
                 "Aggregation": {
@@ -44,13 +49,33 @@
                   "Function": 5
                 }
               },
-              "queryRef": "Sum(MOCK_DATA.id)",
+              "queryRef": "CountNonNull(MOCK_DATA.id)",
               "nativeQueryRef": "Count of id"
             }
           ]
         }
       },
       "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "MOCK_DATA"
+                      }
+                    },
+                    "Property": "id"
+                  }
+                },
+                "Function": 5
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
         "isDefaultSort": true
       }
     },
@@ -59,7 +84,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "f43a4679f2747bc16128",
+        "name": "63e05689e0510140d24e",
         "field": {
           "Column": {
             "Expression": {
@@ -73,7 +98,7 @@
         "type": "Categorical"
       },
       {
-        "name": "ae2b2beaa19c4c767bfe",
+        "name": "39b7bc7dc54969be7e1f",
         "field": {
           "Aggregation": {
             "Expression": {
