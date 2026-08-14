@@ -1,0 +1,121 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "193e03b0ae00e0230c03",
+  "position": {
+    "x": 59.005343473090008,
+    "y": 43.910953282299538,
+    "z": 1,
+    "height": 603.77560763161864,
+    "width": 720.41407728772685
+  },
+  "visual": {
+    "visualType": "columnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MOCK_DATA"
+                    }
+                  },
+                  "Property": "gender"
+                }
+              },
+              "queryRef": "MOCK_DATA.gender",
+              "nativeQueryRef": "gender",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MOCK_DATA"
+                        }
+                      },
+                      "Property": "email"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "CountNonNull(MOCK_DATA.email)",
+              "nativeQueryRef": "Count of email"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "MOCK_DATA"
+                      }
+                    },
+                    "Property": "email"
+                  }
+                },
+                "Function": 5
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d2ed0e101ecbe7c020d3",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MOCK_DATA"
+              }
+            },
+            "Property": "gender"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6a95d6446d90179bc901",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "MOCK_DATA"
+                  }
+                },
+                "Property": "email"
+              }
+            },
+            "Function": 5
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
