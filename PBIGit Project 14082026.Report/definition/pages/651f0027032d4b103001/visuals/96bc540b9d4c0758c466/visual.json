@@ -1,18 +1,18 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "193e03b0ae00e0230c03",
+  "name": "96bc540b9d4c0758c466",
   "position": {
-    "x": 677.87534129549908,
-    "y": 50.77203973265884,
-    "z": 1,
-    "height": 308.74889026616864,
-    "width": 404.80410057119889
+    "x": 10.977738320574884,
+    "y": 13.722172900718606,
+    "z": 2,
+    "height": 525.55922209752259,
+    "width": 639.453257173487
   },
   "visual": {
-    "visualType": "tableEx",
+    "visualType": "columnChart",
     "query": {
       "queryState": {
-        "Values": {
+        "Category": {
           "projections": [
             {
               "field": {
@@ -22,12 +22,17 @@
                       "Entity": "MOCK_DATA"
                     }
                   },
-                  "Property": "Locations"
+                  "Property": "gender"
                 }
               },
-              "queryRef": "MOCK_DATA.Locations",
-              "nativeQueryRef": "Locations"
-            },
+              "queryRef": "MOCK_DATA.gender",
+              "nativeQueryRef": "gender",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
             {
               "field": {
                 "Aggregation": {
@@ -38,28 +43,63 @@
                           "Entity": "MOCK_DATA"
                         }
                       },
-                      "Property": "id"
+                      "Property": "email"
                     }
                   },
                   "Function": 5
                 }
               },
-              "queryRef": "Sum(MOCK_DATA.id)",
-              "nativeQueryRef": "Count of id"
+              "queryRef": "CountNonNull(MOCK_DATA.email)",
+              "nativeQueryRef": "Count of email"
             }
           ]
         }
       },
       "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "MOCK_DATA"
+                      }
+                    },
+                    "Property": "email"
+                  }
+                },
+                "Function": 5
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
         "isDefaultSort": true
       }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "drillFilterOtherVisuals": true
   },
   "filterConfig": {
     "filters": [
       {
-        "name": "f43a4679f2747bc16128",
+        "name": "fd59b33d75704ef85545",
         "field": {
           "Column": {
             "Expression": {
@@ -67,13 +107,13 @@
                 "Entity": "MOCK_DATA"
               }
             },
-            "Property": "Locations"
+            "Property": "gender"
           }
         },
         "type": "Categorical"
       },
       {
-        "name": "ae2b2beaa19c4c767bfe",
+        "name": "b1c00a4d9f899390cd43",
         "field": {
           "Aggregation": {
             "Expression": {
@@ -83,7 +123,7 @@
                     "Entity": "MOCK_DATA"
                   }
                 },
-                "Property": "id"
+                "Property": "email"
               }
             },
             "Function": 5

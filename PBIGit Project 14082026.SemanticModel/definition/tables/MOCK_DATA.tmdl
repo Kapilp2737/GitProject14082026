@@ -50,11 +50,19 @@ table MOCK_DATA
 
 		annotation SummarizationSetBy = Automatic
 
+	column Locations
+		dataType: string
+		lineageTag: 9ea44f46-38c3-49fa-8d2e-3351fc6f16c5
+		summarizeBy: none
+		sourceColumn: Locations
+
+		annotation SummarizationSetBy = Automatic
+
 	partition MOCK_DATA = m
 		mode: import
 		source =
 				let
-				    Source = Csv.Document(File.Contents("D:\Git Project 14082026\MOCK_DATA.csv"),[Delimiter=",", Columns=6, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    Source = Csv.Document(File.Contents("D:\Git Project 14082026\MOCK_DATA.csv"),[Delimiter=",", Columns=7, Encoding=1252, QuoteStyle=QuoteStyle.None]),
 				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"id", Int64.Type}, {"first_name", type text}, {"last_name", type text}, {"email", type text}, {"gender", type text}, {"ip_address", type text}})
 				in
